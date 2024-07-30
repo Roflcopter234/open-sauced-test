@@ -1,0 +1,30 @@
+name: Commit
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+      
+      - name: "Setup node"
+        uses: actions/setup-node@v4
+        with:
+          node-version: 16
+      
+      - name: "Install npm"
+        run: npm i -g npm@latest
+      
+      - name: "Install dependencies"
+        uses: bahmutov/npm-install@v1
+      
+      - name: "Run tests"
+        run: npm t
