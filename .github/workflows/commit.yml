@@ -20,8 +20,8 @@ jobs:
         with:
           node-version: 16
       
-      - name: "Install npm"
-        run: npm i -g npm@latest
+      #- name: "Install npm"
+      #  run: npm i -g npm@latest
       
       - name: "Install dependencies"
         uses: bahmutov/npm-install@v1
